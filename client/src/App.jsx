@@ -11,6 +11,7 @@ import ManageServices from './pages/admin/ManageServices';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CartPopup from './components/CartPopup';
+import ScrollToTop from './components/ScrollToTop';
 
 import Services from './pages/Services';
 import Restaurants from './pages/Restaurants';
@@ -28,6 +29,7 @@ function App() {
         <Router>
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col transition-colors duration-300">
             <Navbar />
+            <ScrollToTop />
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
