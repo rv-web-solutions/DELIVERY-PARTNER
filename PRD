@@ -1,0 +1,191 @@
+📄 PRODUCT REQUIREMENTS DOCUMENT (PRD)
+🧾 Product Name
+
+Ring4Delivery
+
+🎯 Objective
+
+Build a fast, mobile-first food ordering platform where:
+
+Users browse nearby restaurants
+Add items to cart
+Share location
+Place order via WhatsApp
+Admin manages restaurants, items, pricing
+👥 User Roles
+Customer (User)
+Admin (Single owner login only)
+🧑‍🍳 CUSTOMER APPLICATION
+🏠 Home Page (Restaurant Listing)
+7
+Features:
+List of restaurants
+Restaurant card includes:
+Name
+Image (Cloudinary)
+Rating (optional)
+
+Delivery note:
+
+Note :- Additional Delivery Charges Applicable
+Click → open menu
+🍽️ Restaurant Menu Page
+6
+Features:
+Items with:
+Name
+Image
+Price
+Add button
+Quantity increment/decrement
+Real-time cart update
+🛒 Cart Page
+7
+Features:
+List of items
+Increase/decrease/remove
+Bill calculation:
+Subtotal
+Delivery Fee (fixed or dynamic)
+Tax (5%)
+Total
+📍 Checkout Page
+7
+Fields:
+Name (required)
+Phone (10 digit validation)
+Address
+Google Maps location link
+Special Notes
+📲 WhatsApp Order Flow
+
+Use:
+
+WhatsApp deep link
+Generated Message:
+Ring4Delivery Order Confirmation
+
+Order ID: ORDER-<timestamp>
+Name: {user}
+Phone: {phone}
+Address: {address}
+
+Order Details:
+{items list}
+
+Bill Summary:
+Subtotal: ₹X
+Delivery Fee: ₹40
+Tax (5%): ₹X
+Total: ₹X
+
+Special Notes: {note}
+
+Thank you for ordering!
+🔐 ADMIN PANEL
+🔑 Authentication
+Email + Password login
+JWT-based session
+Only 1 admin (no signup public)
+📊 Dashboard
+8
+Features:
+Total restaurants
+Total items
+Orders (optional tracking)
+🍴 Restaurant Management
+Add Restaurant:
+Name
+Image (Cloudinary upload)
+Delivery fee
+Edit/Delete
+🍕 Item Management
+Add Item:
+Select restaurant (dropdown)
+Name
+Price
+Image (Cloudinary)
+Availability toggle
+⚡ PERFORMANCE REQUIREMENTS
+Speed Goals:
+Page load < 2 sec
+API response < 500ms
+Optimization:
+Lazy loading images
+CDN via Cloudinary
+Use caching
+Minified frontend
+☁️ CLOUDINARY (Image Storage)
+Why:
+Fast CDN delivery
+Automatic optimization
+Implementation:
+Upload via backend API
+Store returned URL in DB
+Data Stored:
+{
+  imageUrl: "https://res.cloudinary.com/..."
+}
+🗄️ DATABASE DESIGN (MongoDB)
+
+Use:
+
+MongoDB
+Collections:
+1. Restaurants
+{
+  _id,
+  name,
+  imageUrl,
+  deliveryFee,
+  createdAt
+}
+2. Items
+{
+  _id,
+  restaurantId,
+  name,
+  price,
+  imageUrl,
+  isAvailable
+}
+3. Admin
+{
+  _id,
+  email,
+  password (hashed)
+}
+🧱 TECH STACK
+Frontend:
+React.js
+Tailwind CSS
+Backend:
+Node.js + Express
+APIs:
+Google Maps (location sharing)
+🎨 UI DESIGN SYSTEM
+Theme Colors:
+Yellow → Primary (#FFD700)
+Red → Accent (#FF3B30)
+Black → Background
+White → Text
+UI Style:
+Rounded cards
+Minimal design
+Bold buttons
+High contrast
+📱 RESPONSIVENESS
+Mobile-first design
+Works on:
+Phones
+Tablets
+Laptops
+🔒 VALIDATIONS
+Phone must be exactly 10 digits
+Required fields cannot be empty
+Prevent empty cart checkout
+🚀 FUTURE FEATURES (Optional)
+Online payments
+Order tracking
+Multi-admin
+Ratings/reviews
