@@ -51,7 +51,7 @@ const Navbar = () => {
             )}
           </Link>
           
-          <Link to="/admin/login" className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors hidden sm:flex">
+          <Link to="/admin/login" className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors flex">
             <User size={22} />
           </Link>
         </div>
