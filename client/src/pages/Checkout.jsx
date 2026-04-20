@@ -34,7 +34,7 @@ const Checkout = () => {
       newErrors.phone = 'Please enter a valid 10-digit phone number';
     }
     if (!formData.address.trim()) newErrors.address = 'Delivery address is required';
-    if (!formData.locationLink.trim()) newErrors.locationLink = 'Location is required. Please pick a location or paste a map link.';
+    if (!formData.locationLink.trim()) newErrors.locationLink = 'Precise location detection is mandatory. Please tap "Detect My Location" above.';
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -219,22 +219,32 @@ const Checkout = () => {
               <div className="space-y-4 pt-4">
                 <div className="h-px bg-gray-200 dark:bg-white/5"></div>
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">
-                      Location <span className="text-accent">*</span>
-                    </label>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center justify-between">
+                      <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">
+                        Location <span className="text-accent">*</span>
+                      </label>
+                    </div>
+                    
                     <button 
                       type="button" 
                       onClick={handleGetLocation}
                       disabled={isLocating}
-                      className="text-xs bg-primary/20 text-primary px-3 py-1.5 rounded-xl font-bold hover:bg-primary hover:text-dark transition-all disabled:opacity-50 flex items-center gap-1.5"
+                      className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all ${
+                        locationInfo 
+                        ? 'bg-green-500/20 text-green-600 border-2 border-green-500/30' 
+                        : 'bg-primary text-gray-900 shadow-lg shadow-primary/20 hover:scale-[1.02]'
+                      } disabled:opacity-50`}
                     >
                       {isLocating ? (
-                        <><span className="w-3 h-3 border-2 border-primary/40 border-t-primary rounded-full animate-spin"></span> Locating...</>
+                        <><span className="w-5 h-5 border-3 border-dark/20 border-t-dark rounded-full animate-spin"></span> Locating...</>
+                      ) : locationInfo ? (
+                        <>✅ Location Verified</>
                       ) : (
-                        <>📍 Use My Location</>
+                        <>📍 Detect My Current Location</>
                       )}
                     </button>
+                    <p className="text-[10px] text-gray-500 ml-1">Current location is mandatory for accurate delivery.</p>
                   </div>
 
                   {/* Error message */}
@@ -261,14 +271,7 @@ const Checkout = () => {
                     </div>
                   )}
 
-                  <input 
-                    type="text"
-                    placeholder="Paste Google Maps link or use the button above"
-                    className={`w-full bg-white dark:bg-white/5 border ${errors.locationLink ? 'border-accent' : 'border-gray-200 dark:border-white/10'} text-gray-900 dark:text-white rounded-2xl py-4 px-6 outline-none focus:border-primary/50 transition-all text-sm`}
-                    value={formData.locationLink}
-                    onChange={(e) => setFormData({...formData, locationLink: e.target.value})}
-                  />
-                  {errors.locationLink && <p className="text-accent text-xs ml-1 mt-1">{errors.locationLink}</p>}
+                  {errors.locationLink && <p className="text-accent text-xs ml-1 font-bold">{errors.locationLink}</p>}
                 </div>
 
                 <div className="space-y-2">
