@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { Send, MapPin, Phone, User, MessageSquare, ClipboardCheck } from 'lucide-react';
@@ -21,6 +21,11 @@ const Checkout = () => {
   const [isLocating, setIsLocating] = useState(false);
   const [locationInfo, setLocationInfo] = useState(null); // { lat, lng, address }
   const [locationError, setLocationError] = useState('');
+  
+  const nameRef = useRef(null);
+  const phoneRef = useRef(null);
+  const addressRef = useRef(null);
+  const locationRef = useRef(null);
 
   const deliveryFee = 40;
   const tax = Math.round(subtotal * 0.05);
@@ -28,17 +33,33 @@ const Checkout = () => {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Full name is required';
+    let firstErrorField = null;
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Full name is required';
+      if (!firstErrorField) firstErrorField = 'name';
+    }
+    
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
+      if (!firstErrorField) firstErrorField = 'phone';
     } else if (!/^\d{10}$/.test(formData.phone)) {
       newErrors.phone = 'Please enter a valid 10-digit phone number';
+      if (!firstErrorField) firstErrorField = 'phone';
     }
-    if (!formData.address.trim()) newErrors.address = 'Delivery address is required';
-    if (!formData.locationLink.trim()) newErrors.locationLink = 'Precise location detection is mandatory. Please tap "Detect My Location" above.';
+    
+    if (!formData.address.trim()) {
+      newErrors.address = 'Delivery address is required';
+      if (!firstErrorField) firstErrorField = 'address';
+    }
+    
+    if (!formData.locationLink.trim()) {
+      newErrors.locationLink = 'Precise location detection is mandatory. Please tap "Detect My Location" above.';
+      if (!firstErrorField) firstErrorField = 'location';
+    }
     
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return firstErrorField;
   };
 
   const handleGetLocation = () => {
@@ -94,7 +115,21 @@ const Checkout = () => {
   };
 
   const handlePlaceOrder = () => {
-    if (!validate()) return;
+    const firstError = validate();
+    if (firstError) {
+      const refs = {
+        name: nameRef,
+        phone: phoneRef,
+        address: addressRef,
+        location: locationRef
+      };
+      
+      refs[firstError]?.current?.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+      });
+      return;
+    }
 
     const orderId = `ORDER-${Date.now().toString().slice(-6)}`;
     
@@ -171,7 +206,7 @@ const Checkout = () => {
             </h3>
             
             <div className="space-y-6">
-              <div className="space-y-2">
+              <div className="space-y-2" ref={nameRef}>
                 <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Full Name</label>
                 <div className="relative">
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
@@ -186,7 +221,7 @@ const Checkout = () => {
                 {errors.name && <p className="text-accent text-xs ml-1">{errors.name}</p>}
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2" ref={phoneRef}>
                 <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Mobile Number</label>
                 <div className="relative">
                   <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
@@ -201,7 +236,7 @@ const Checkout = () => {
                 {errors.phone && <p className="text-accent text-xs ml-1">{errors.phone}</p>}
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2" ref={addressRef}>
                 <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Delivery Address</label>
                 <LocationSearchInput 
                   value={formData.address}
@@ -223,7 +258,7 @@ const Checkout = () => {
               </div>
 
               {/* Optional Fields */}
-              <div className="space-y-4 pt-4">
+              <div className="space-y-4 pt-4" ref={locationRef}>
                 <div className="h-px bg-gray-200 dark:bg-white/5"></div>
                 <div className="space-y-2">
                   <div className="flex flex-col gap-4">
