@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ShoppingCart, ClipboardList, AlertCircle } from 'lucide-react';
+import { ShoppingCart, ClipboardList, AlertCircle, MapPin } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useService } from '../context/ServiceContext';
 import toast from 'react-hot-toast';
+import LocationSearchInput from '../components/LocationSearchInput';
 
 const CustomOrder = () => {
   const { type } = useParams();
@@ -83,13 +84,13 @@ const CustomOrder = () => {
         {isPickupDrop && (
           <div className="mb-6">
             <label className="block text-sm font-bold text-gray-900 dark:text-gray-200 mb-2">Pick-up Location</label>
-            <textarea 
-              rows="3"
-              placeholder="Paste Google Maps link or enter full pickup address here..."
-              className="w-full bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-2xl p-6 outline-none focus:border-primary/50 transition-all resize-none shadow-inner"
+            <LocationSearchInput 
               value={pickupLocation}
-              onChange={(e) => setPickupLocation(e.target.value)}
-            ></textarea>
+              onChange={(val) => setPickupLocation(val)}
+              onSelect={(s) => setPickupLocation(s.fullAddress)}
+              placeholder="Search for pickup address..."
+              icon={MapPin}
+            />
           </div>
         )}
 

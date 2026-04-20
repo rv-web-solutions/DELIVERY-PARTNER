@@ -3,6 +3,7 @@ import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { Send, MapPin, Phone, User, MessageSquare, ClipboardCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
+import LocationSearchInput from '../components/LocationSearchInput';
 
 const Checkout = () => {
   const { cart, subtotal, totalItems, clearCart } = useCart();
@@ -202,16 +203,22 @@ const Checkout = () => {
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Delivery Address</label>
-                <div className="relative">
-                  <MapPin className="absolute left-4 top-4 text-gray-500" size={18} />
-                  <textarea 
-                    placeholder="House No, Street, Area, Landmark..."
-                    rows="3"
-                    className={`w-full bg-white dark:bg-white/5 border ${errors.address ? 'border-accent' : 'border-gray-200 dark:border-white/10'} text-gray-900 dark:text-white rounded-2xl py-4 pl-12 pr-6 outline-none focus:border-primary/50 transition-all resize-none`}
-                    value={formData.address}
-                    onChange={(e) => setFormData({...formData, address: e.target.value})}
-                  />
-                </div>
+                <LocationSearchInput 
+                  value={formData.address}
+                  onChange={(val) => setFormData({...formData, address: val})}
+                  onSelect={(s) => {
+                    const mapsLink = `https://maps.google.com/?q=${s.lat},${s.lng}`;
+                    setFormData(prev => ({ 
+                      ...prev, 
+                      address: s.fullAddress,
+                      locationLink: mapsLink 
+                    }));
+                    setLocationInfo({ lat: s.lat.toFixed(6), lng: s.lng.toFixed(6), address: s.fullAddress });
+                  }}
+                  placeholder="Type your area, building, or street..."
+                  icon={MapPin}
+                  error={errors.address}
+                />
                 {errors.address && <p className="text-accent text-xs ml-1">{errors.address}</p>}
               </div>
 
