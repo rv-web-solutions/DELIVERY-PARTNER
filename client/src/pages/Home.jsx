@@ -66,15 +66,15 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
-            className="relative hidden lg:block h-[500px]"
+            className="relative h-[400px] md:h-[500px] mt-16 lg:mt-0"
           >
-            <div className="absolute top-0 right-0 w-2/3 h-64 rounded-[2rem] overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-[80%] lg:w-2/3 h-48 lg:h-64 rounded-[2rem] overflow-hidden shadow-2xl">
               <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&fit=crop" className="w-full h-full object-cover" alt="Food" />
             </div>
-            <div className="absolute bottom-0 left-0 w-2/3 h-64 rounded-[2rem] overflow-hidden shadow-2xl z-10 border-4 border-gray-50 dark:border-gray-900 transition-colors">
+            <div className="absolute bottom-0 left-0 w-[80%] lg:w-2/3 h-48 lg:h-64 rounded-[2rem] overflow-hidden shadow-2xl z-10 border-4 border-gray-50 dark:border-gray-900 transition-colors">
               <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&fit=crop" className="w-full h-full object-cover" alt="Groceries" />
             </div>
-            <div className="absolute top-1/2 right-10 -translate-y-1/2 w-40 h-40 rounded-full overflow-hidden shadow-xl border-4 border-gray-50 dark:border-gray-900 z-20 transition-colors">
+            <div className="absolute top-1/2 right-4 lg:right-10 -translate-y-1/2 w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden shadow-xl border-4 border-gray-50 dark:border-gray-900 z-20 transition-colors">
               <img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=400&fit=crop" className="w-full h-full object-cover" alt="Medicines" />
             </div>
           </motion.div>
