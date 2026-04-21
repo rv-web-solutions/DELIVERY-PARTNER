@@ -68,12 +68,12 @@ const Jobs = () => {
               <span className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-black text-sm">01</span>
               Job Description
             </h2>
-            <div className="glass p-8 rounded-[2.5rem] border-black/5 dark:border-white/5 bg-white dark:bg-black space-y-4">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <div className="glass p-8 rounded-[2.5rem] border-black/5 dark:border-white/5 bg-white/80 dark:bg-black/50 space-y-4">
+              <p className="text-black dark:text-gray-300 leading-relaxed font-medium">
                 As a **Delivery Partner** at Ring4Delivery, you will be responsible for picking up orders (Food, Medicines, Groceries, or Parcels) from various locations and delivering them safely to customers' doorsteps.
               </p>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                <span className="font-bold text-primary">Note:</span> Currently, only the Delivery Partner position is available. We do not have any other openings at this time.
+              <p className="text-black dark:text-gray-300 leading-relaxed font-medium">
+                <span className="font-bold text-accent dark:text-primary">Note:</span> Currently, only the Delivery Partner position is available. We do not have any other openings at this time.
               </p>
             </div>
           </section>
@@ -85,9 +85,9 @@ const Jobs = () => {
             </h2>
             <div className="grid gap-4">
               {requirements.map((req, i) => (
-                <div key={i} className="flex items-center gap-3 p-4 rounded-2xl bg-gray-50 dark:bg-surface-dark border border-black/5 dark:border-white/5">
+                <div key={i} className="flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-surface-dark border border-black/5 dark:border-white/5 shadow-sm">
                   <CheckCircle2 className="text-primary" size={20} />
-                  <span className="text-gray-700 dark:text-gray-300 font-medium">{req}</span>
+                  <span className="text-black dark:text-gray-300 font-bold">{req}</span>
                 </div>
               ))}
             </div>

@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import Cart from './pages/Cart';
@@ -24,37 +25,60 @@ import { ThemeProvider } from './context/ThemeContext';
 
 import { Toaster } from 'react-hot-toast';
 
+const PageWrapper = ({ children }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+function AppContent() {
+  const location = useLocation();
+  
+  return (
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex flex-col transition-colors duration-300">
+      <Navbar />
+      <ScrollToTop />
+      <main className="flex-grow">
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+            <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+            <Route path="/restaurants" element={<PageWrapper><Restaurants /></PageWrapper>} />
+            <Route path="/restaurant/:id" element={<PageWrapper><Menu /></PageWrapper>} />
+            <Route path="/custom-order/:type" element={<PageWrapper><CustomOrder /></PageWrapper>} />
+            <Route path="/cart" element={<PageWrapper><Cart /></PageWrapper>} />
+            <Route path="/checkout" element={<PageWrapper><Checkout /></PageWrapper>} />
+            <Route path="/jobs" element={<PageWrapper><Jobs /></PageWrapper>} />
+            <Route path="/admin/login" element={<PageWrapper><Login /></PageWrapper>} />
+            <Route path="/admin/dashboard" element={<PageWrapper><Dashboard /></PageWrapper>} />
+            <Route path="/admin/restaurants" element={<PageWrapper><ManageRestaurants /></PageWrapper>} />
+            <Route path="/admin/items" element={<PageWrapper><ManageItems /></PageWrapper>} />
+            <Route path="/admin/services" element={<PageWrapper><ManageServices /></PageWrapper>} />
+          </Routes>
+        </AnimatePresence>
+      </main>
+      <Footer />
+      <CartPopup />
+      <Toaster position="bottom-center" />
+    </div>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
       <ServiceProvider>
         <CartProvider>
           <Router>
-              <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex flex-col transition-colors duration-300">
-              <Navbar />
-              <ScrollToTop />
-              <main className="flex-grow">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/restaurants" element={<Restaurants />} />
-                  <Route path="/restaurant/:id" element={<Menu />} />
-                  <Route path="/custom-order/:type" element={<CustomOrder />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route path="/checkout" element={<Checkout />} />
-                  <Route path="/jobs" element={<Jobs />} />
-                  <Route path="/admin/login" element={<Login />} />
-                  <Route path="/admin/dashboard" element={<Dashboard />} />
-                  <Route path="/admin/restaurants" element={<ManageRestaurants />} />
-                  <Route path="/admin/items" element={<ManageItems />} />
-                  <Route path="/admin/services" element={<ManageServices />} />
-                </Routes>
-              </main>
-            <Footer />
-            <CartPopup />
-            <Toaster position="bottom-center" />
-          </div>
-        </Router>
+            <AppContent />
+          </Router>
         </CartProvider>
       </ServiceProvider>
     </ThemeProvider>
