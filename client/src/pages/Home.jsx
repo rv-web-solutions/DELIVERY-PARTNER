@@ -12,7 +12,6 @@ const Home = () => {
   ];
 
   return (
-  return (
     <div className="pb-20 bg-white dark:bg-black text-black dark:text-white min-h-screen transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
