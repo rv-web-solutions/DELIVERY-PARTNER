@@ -194,14 +194,14 @@ const Checkout = () => {
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
       <div className="flex items-center gap-4 mb-12">
         <ClipboardCheck className="text-primary" size={32} />
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Checkout</h1>
+        <h1 className="text-4xl font-bold text-black dark:text-white">Checkout</h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Form Section */}
         <div className="space-y-8">
-          <div className="glass p-8 rounded-[2.5rem] border-gray-200 dark:border-white/5">
-            <h3 className="text-xl font-bold mb-8 flex items-center gap-2 text-gray-900 dark:text-white">
+          <div className="glass p-8 rounded-[2.5rem] border-black/5 dark:border-white/5 bg-white dark:bg-black">
+            <h3 className="text-xl font-bold mb-8 flex items-center gap-2 text-black dark:text-white">
               <User size={20} className="text-primary" /> Delivery Information
             </h3>
             
@@ -209,11 +209,11 @@ const Checkout = () => {
               <div className="space-y-2" ref={nameRef}>
                 <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Full Name <span className="text-accent">*</span></label>
                 <div className="relative">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                   <input 
                     type="text"
                     placeholder="John Doe"
-                    className={`w-full bg-white dark:bg-white/5 border ${errors.name ? 'border-accent' : 'border-gray-200 dark:border-white/10'} text-gray-900 dark:text-white rounded-2xl py-4 pl-12 pr-6 outline-none focus:border-primary/50 transition-all`}
+                    className={`w-full bg-white dark:bg-black border ${errors.name ? 'border-accent' : 'border-black/10 dark:border-white/10'} text-black dark:text-white rounded-2xl py-4 pl-12 pr-6 outline-none focus:border-primary/50 transition-all`}
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
@@ -224,11 +224,11 @@ const Checkout = () => {
               <div className="space-y-2" ref={phoneRef}>
                 <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Mobile Number <span className="text-accent">*</span></label>
                 <div className="relative">
-                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
+                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                   <input 
                     type="tel"
                     placeholder="9876543210"
-                    className={`w-full bg-white dark:bg-white/5 border ${errors.phone ? 'border-accent' : 'border-gray-200 dark:border-white/10'} text-gray-900 dark:text-white rounded-2xl py-4 pl-12 pr-6 outline-none focus:border-primary/50 transition-all`}
+                    className={`w-full bg-white dark:bg-black border ${errors.phone ? 'border-accent' : 'border-black/10 dark:border-white/10'} text-black dark:text-white rounded-2xl py-4 pl-12 pr-6 outline-none focus:border-primary/50 transition-all`}
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
                   />
@@ -259,7 +259,7 @@ const Checkout = () => {
 
               {/* Optional Fields */}
               <div className="space-y-4 pt-4" ref={locationRef}>
-                <div className="h-px bg-gray-200 dark:bg-white/5"></div>
+                <div className="h-px bg-black/10 dark:bg-white/5"></div>
                 <div className="space-y-2">
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between">

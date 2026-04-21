@@ -44,7 +44,7 @@ const CartPopup = () => {
                     exit={{ opacity: 0, scale: 0.8, y: 20, x: 20 }}
                     className="fixed bottom-6 right-6 z-[100] w-[350px] overflow-hidden"
                 >
-                    <div className="glass border-primary/20 p-6 rounded-[2rem] shadow-2xl relative">
+                    <div className="glass border-black/10 dark:border-white/10 p-6 rounded-[2.5rem] shadow-2xl relative bg-white dark:bg-black">
                         {/* Progress bar for auto-close */}
                         <motion.div 
                             initial={{ width: '100%' }}
@@ -55,7 +55,7 @@ const CartPopup = () => {
 
                         <button 
                             onClick={() => setShowPopup(false)}
-                            className="absolute top-4 right-4 text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
+                            className="absolute top-4 right-4 text-gray-400 hover:text-black dark:text-gray-500 dark:hover:text-white transition-colors"
                         >
                             <X size={20} />
                         </button>
@@ -75,7 +75,7 @@ const CartPopup = () => {
                                 className="w-16 h-16 rounded-2xl object-cover shrink-0" 
                             />
                             <div>
-                                <h4 className="font-bold text-lg line-clamp-1">{lastAddedItem.name}</h4>
+                                <h4 className="font-bold text-lg line-clamp-1 text-black dark:text-white">{lastAddedItem.name}</h4>
                                 <p className="text-xs text-gray-500 dark:text-gray-400">{lastAddedItem.restaurantName}</p>
                                 <p className="text-primary font-bold mt-1">₹{lastAddedItem.price}</p>
                             </div>
@@ -87,7 +87,7 @@ const CartPopup = () => {
                             </label>
                             <textarea 
                                 placeholder="Need any items specify here..."
-                                className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl py-3 px-4 text-sm outline-none focus:border-primary/50 transition-all resize-none h-20 placeholder:text-gray-500 dark:placeholder:text-gray-600"
+                                className="w-full bg-gray-50 dark:bg-surface-dark border border-black/10 dark:border-white/10 rounded-2xl py-3 px-4 text-sm outline-none focus:border-primary/50 transition-all resize-none h-20 placeholder:text-gray-400 dark:placeholder:text-gray-600 text-black dark:text-white"
                                 value={spec}
                                 onChange={handleSpecChange}
                             />

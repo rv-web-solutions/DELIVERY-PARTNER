@@ -5,17 +5,24 @@
 @theme {
   --color-primary: #FFD700;
   --color-accent: #E53935;
-  --color-dark: #000000;
-  --color-light: #FFFFFF;
-  --color-surface: #121212;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-surface-light: #F9F9F9;
+  --color-surface-dark: #121212;
   
   --font-sans: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 :root {
   font-family: var(--font-sans);
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 body {

@@ -70,20 +70,20 @@ const CustomOrder = () => {
 
   return (
     <div className="pt-32 pb-20 px-6 max-w-3xl mx-auto min-h-screen">
-      <div className="glass p-8 md:p-12 rounded-[2.5rem] border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 transition-colors">
+      <div className="glass p-8 md:p-12 rounded-[2.5rem] border border-black/5 dark:border-white/5 bg-white dark:bg-black transition-colors">
         <div className="flex items-center gap-4 mb-6">
           <div className={`p-4 rounded-2xl ${isPickupDrop ? 'bg-orange-100 dark:bg-orange-900 text-orange-500 md:dark:text-orange-300' : (isMedicine ? 'bg-blue-100 dark:bg-blue-900 text-blue-500 md:dark:text-blue-300' : 'bg-green-100 dark:bg-green-900 text-green-500 dark:text-green-300')}`}>
             <ClipboardList size={32} />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{displayTitle}</h1>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">{displayDesc}</p>
+            <h1 className="text-3xl font-bold text-black dark:text-white">{displayTitle}</h1>
+            <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{displayDesc}</p>
           </div>
         </div>
 
         {isPickupDrop && (
           <div className="mb-6">
-            <label className="block text-sm font-bold text-gray-900 dark:text-gray-200 mb-2">Pick-up Location</label>
+            <label className="block text-sm font-bold text-black dark:text-white mb-2">Pick-up Location</label>
             <LocationSearchInput 
               value={pickupLocation}
               onChange={(val) => setPickupLocation(val)}
@@ -95,7 +95,7 @@ const CustomOrder = () => {
         )}
 
         <div className="mb-8">
-          <label className="block text-sm font-bold text-gray-900 dark:text-gray-200 mb-2">{isPickupDrop ? 'Parcel Details / Requirements' : 'Your Requirements'}</label>
+          <label className="block text-sm font-bold text-black dark:text-white mb-2">{isPickupDrop ? 'Parcel Details / Requirements' : 'Your Requirements'}</label>
           <textarea 
             rows="6"
             placeholder={isPickupDrop 
@@ -103,7 +103,7 @@ const CustomOrder = () => {
               : (isMedicine 
                 ? `e.g.\n1. Paracetamol 500mg - 2 strips\n2. Vitamin C - 1 bottle` 
                 : `e.g.\n1. 1kg Basmati Rice\n2. 500g Toor Dal\n3. 1L Sunflower Oil`)}
-            className="w-full bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-2xl p-6 outline-none focus:border-primary/50 transition-all resize-none shadow-inner"
+            className="w-full bg-gray-50 dark:bg-surface-dark border border-black/5 dark:border-white/10 text-black dark:text-white rounded-2xl p-6 outline-none focus:border-primary/50 transition-all resize-none shadow-inner"
             value={requirements}
             onChange={(e) => setRequirements(e.target.value)}
           ></textarea>

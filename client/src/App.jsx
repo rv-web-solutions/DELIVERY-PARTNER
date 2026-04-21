@@ -19,40 +19,43 @@ import CustomOrder from './pages/CustomOrder';
 
 import { CartProvider } from './context/CartContext';
 import { ServiceProvider } from './context/ServiceContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <ServiceProvider>
-      <CartProvider>
-        <Router>
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col transition-colors duration-300">
-            <Navbar />
-            <ScrollToTop />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/restaurants" element={<Restaurants />} />
-                <Route path="/restaurant/:id" element={<Menu />} />
-                <Route path="/custom-order/:type" element={<CustomOrder />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/admin/login" element={<Login />} />
-                <Route path="/admin/dashboard" element={<Dashboard />} />
-                <Route path="/admin/restaurants" element={<ManageRestaurants />} />
-                <Route path="/admin/items" element={<ManageItems />} />
-                <Route path="/admin/services" element={<ManageServices />} />
-              </Routes>
-            </main>
-          <Footer />
-          <CartPopup />
-          <Toaster position="bottom-center" />
-        </div>
-      </Router>
-      </CartProvider>
-    </ServiceProvider>
+    <ThemeProvider>
+      <ServiceProvider>
+        <CartProvider>
+          <Router>
+              <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex flex-col transition-colors duration-300">
+              <Navbar />
+              <ScrollToTop />
+              <main className="flex-grow">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/restaurants" element={<Restaurants />} />
+                  <Route path="/restaurant/:id" element={<Menu />} />
+                  <Route path="/custom-order/:type" element={<CustomOrder />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/admin/login" element={<Login />} />
+                  <Route path="/admin/dashboard" element={<Dashboard />} />
+                  <Route path="/admin/restaurants" element={<ManageRestaurants />} />
+                  <Route path="/admin/items" element={<ManageItems />} />
+                  <Route path="/admin/services" element={<ManageServices />} />
+                </Routes>
+              </main>
+            <Footer />
+            <CartPopup />
+            <Toaster position="bottom-center" />
+          </div>
+        </Router>
+        </CartProvider>
+      </ServiceProvider>
+    </ThemeProvider>
   );
 }
 

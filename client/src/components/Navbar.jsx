@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, User, MapPin, Menu, X } from 'lucide-react';
+import { ShoppingCart, User, MapPin, Menu, X, Sun, Moon } from 'lucide-react';
 
 import { useCart } from '../context/CartContext';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const { totalItems } = useCart();
+  const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -42,7 +44,7 @@ const Navbar = () => {
             <span>Select Location</span>
           </div>
 
-          <Link to="/cart" className="relative p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors flex items-center">
+          <Link to="/cart" className="relative p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors flex items-center group">
             <ShoppingCart size={22} className="text-primary" />
             {totalItems > 0 && (
               <span className="absolute -top-1 -right-1 bg-accent text-white text-[10px] w-4 h-4 md:w-5 md:h-5 md:-top-1 md:-right-2 rounded-full flex items-center justify-center font-bold shadow-sm">
@@ -50,8 +52,16 @@ const Navbar = () => {
               </span>
             )}
           </Link>
+
+          <button 
+            onClick={toggleTheme}
+            className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-all flex items-center justify-center text-primary"
+            title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          >
+            {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
+          </button>
           
-          <Link to="/admin/login" className="p-2 hover:bg-white/5 rounded-full transition-colors flex text-gray-300 hover:text-primary">
+          <Link to="/admin/login" className="p-2 hover:bg-white/5 rounded-full transition-colors flex text-gray-700 dark:text-gray-300 hover:text-primary">
             <User size={22} />
           </Link>
         </div>

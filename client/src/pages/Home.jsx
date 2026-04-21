@@ -12,7 +12,8 @@ const Home = () => {
   ];
 
   return (
-    <div className="pb-20 bg-dark text-white min-h-screen transition-colors duration-300">
+  return (
+    <div className="pb-20 bg-white dark:bg-black text-black dark:text-white min-h-screen transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         {/* Background Image with Overlay */}
@@ -44,14 +45,14 @@ const Home = () => {
               className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white"
             >
               Welcome to <span className="text-primary">Ring4Delivery</span> <br />
-              <span className="text-3xl md:text-5xl block mt-2 text-gray-300">Food & Daily Essentials Delivery Service.</span>
+              <span className="text-3xl md:text-5xl block mt-2 text-white/80">Food & Daily Essentials Delivery Service.</span>
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl leading-relaxed"
+              className="text-white/90 text-lg md:text-xl mb-10 max-w-2xl leading-relaxed"
             >
               Order your favorite Food from the best Restaurants in your Area. Fast Delivery, Great Prices and Premium Quality. Enjoy Your Favourite Food at Your Home.
             </motion.p>
@@ -87,11 +88,11 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="about" className="px-6 py-20 bg-dark">
+      <section id="about" className="px-6 py-20 bg-white dark:bg-black transition-colors">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-white">Why Choose <span className="text-primary">Ring4Delivery?</span></h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Experience a delivery service built on speed, quality, and your favorite local flavors.</p>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-black dark:text-white">Why Choose <span className="text-primary">Ring4Delivery?</span></h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">Experience a delivery service built on speed, quality, and your favorite local flavors.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -99,12 +100,12 @@ const Home = () => {
               { title: "Fresh & Trusted", desc: "Fresh, delicious food from trusted restaurants delivered while it's hot.", color: "bg-accent" },
               { title: "Greatest Value", desc: "Competitive pricing with regular discounts and no hidden surcharges.", color: "bg-primary" },
             ].map((feature, i) => (
-              <div key={i} className="p-10 rounded-[2.5rem] bg-surface/50 border border-white/5 hover:border-primary/30 transition-all group">
-                <div className={`w-14 h-14 rounded-2xl ${feature.color} flex items-center justify-center mb-8 transform group-hover:rotate-6 transition-transform`}>
-                  <CheckCircle2 size={28} className={feature.color === 'bg-primary' ? 'text-dark' : 'text-white'} />
+              <div key={i} className="p-10 rounded-[2.5rem] bg-gray-50 dark:bg-surface-dark border border-black/5 dark:border-white/5 hover:border-primary/30 transition-all group">
+                <div className={`w-14 h-14 rounded-2xl ${feature.color} flex items-center justify-center mb-8 transform group-hover:rotate-6 transition-transform shadow-lg`}>
+                  <CheckCircle2 size={28} className={feature.color === 'bg-primary' ? 'text-black' : 'text-white'} />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white">{feature.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-lg">{feature.desc}</p>
+                <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">{feature.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">{feature.desc}</p>
               </div>
             ))}
           </div>

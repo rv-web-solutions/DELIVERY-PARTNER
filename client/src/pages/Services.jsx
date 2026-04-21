@@ -55,7 +55,7 @@ const Services = () => {
   return (
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">What do you need today?</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black dark:text-white">What do you need today?</h1>
         <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Choose a service below. We'll handle the ordering and bring it directly to your door.
         </p>
@@ -74,7 +74,7 @@ const Services = () => {
               className={`block group ${serviceStatus[service.key] === false ? 'opacity-60 cursor-not-allowed' : ''}`}
               onClick={(e) => handleServiceClick(e, service)}
             >
-              <div className="glass rounded-[2rem] overflow-hidden relative border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <div className="glass rounded-[2rem] overflow-hidden relative border border-black/5 dark:border-white/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div className="h-48 overflow-hidden relative">
                   {serviceStatus[service.key] === false && (
                     <div className="absolute inset-0 bg-black/60 z-30 flex items-center justify-center p-4">
@@ -85,12 +85,12 @@ const Services = () => {
                   )}
                   <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-colors"></div>
                   <img src={service.bgImg} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={service.title} />
-                  <div className="absolute bottom-4 left-4 z-20 bg-white dark:bg-gray-800 p-3 rounded-2xl shadow-lg transition-colors">
+                  <div className="absolute bottom-4 left-4 z-20 bg-white dark:bg-black p-3 rounded-2xl shadow-lg transition-colors">
                     {service.icon}
                   </div>
                 </div>
-                <div className="p-8 bg-white dark:bg-gray-800 transition-colors">
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">{service.title}</h3>
+                <div className="p-8 bg-white dark:bg-black transition-colors">
+                  <h3 className="text-2xl font-bold mb-2 text-black dark:text-white group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">{service.desc}</p>
                 </div>
               </div>
