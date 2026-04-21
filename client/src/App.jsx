@@ -16,6 +16,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Services from './pages/Services';
 import Restaurants from './pages/Restaurants';
 import CustomOrder from './pages/CustomOrder';
+import Jobs from './pages/Jobs';
 
 import { CartProvider } from './context/CartContext';
 import { ServiceProvider } from './context/ServiceContext';
@@ -41,6 +42,7 @@ function App() {
                   <Route path="/custom-order/:type" element={<CustomOrder />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/jobs" element={<Jobs />} />
                   <Route path="/admin/login" element={<Login />} />
                   <Route path="/admin/dashboard" element={<Dashboard />} />
                   <Route path="/admin/restaurants" element={<ManageRestaurants />} />
