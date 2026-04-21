@@ -207,7 +207,7 @@ const Checkout = () => {
             
             <div className="space-y-6">
               <div className="space-y-2" ref={nameRef}>
-                <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Full Name</label>
+                <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Full Name <span className="text-accent">*</span></label>
                 <div className="relative">
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                   <input 
@@ -222,7 +222,7 @@ const Checkout = () => {
               </div>
 
               <div className="space-y-2" ref={phoneRef}>
-                <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Mobile Number</label>
+                <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Mobile Number <span className="text-accent">*</span></label>
                 <div className="relative">
                   <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
                   <input 
@@ -237,7 +237,7 @@ const Checkout = () => {
               </div>
 
               <div className="space-y-2" ref={addressRef}>
-                <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Delivery Address</label>
+                <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">Delivery Address <span className="text-accent">*</span></label>
                 <LocationSearchInput 
                   value={formData.address}
                   onChange={(val) => setFormData({...formData, address: val})}
