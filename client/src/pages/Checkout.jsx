@@ -365,7 +365,7 @@ const Checkout = () => {
                 <span>GST (5%)</span>
                 <span>₹{tax}</span>
               </div>
-              <div className="flex justify-between text-xl font-bold text-primary pt-4">
+              <div className="flex justify-between text-xl font-bold text-accent dark:text-primary pt-4">
                 <span>Total Amount</span>
                 <span>₹{total}</span>
               </div>

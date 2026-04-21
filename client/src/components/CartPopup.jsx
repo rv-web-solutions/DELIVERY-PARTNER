@@ -77,7 +77,7 @@ const CartPopup = () => {
                             <div>
                                 <h4 className="font-bold text-lg line-clamp-1 text-black dark:text-white">{lastAddedItem.name}</h4>
                                 <p className="text-xs text-gray-500 dark:text-gray-400">{lastAddedItem.restaurantName}</p>
-                                <p className="text-primary font-bold mt-1">₹{lastAddedItem.price}</p>
+                                <p className="text-accent dark:text-primary font-bold mt-1">₹{lastAddedItem.price}</p>
                             </div>
                         </div>
 

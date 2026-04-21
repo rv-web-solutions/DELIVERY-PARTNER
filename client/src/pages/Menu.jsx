@@ -70,7 +70,7 @@ const Menu = () => {
               <Clock size={16} /> {restaurant.deliveryTime}
             </div>
             <div className="text-gray-700 dark:text-gray-300 font-medium bg-white/80 dark:bg-black/50 px-3 py-1 rounded-full backdrop-blur-md">
-              {restaurant.cuisine} • Delivery Fee ₹{restaurant.deliveryFee}
+              {restaurant.cuisine} • Delivery Fee <span className="text-accent dark:text-primary font-bold">₹{restaurant.deliveryFee}</span>
             </div>
           </div>
         </div>
@@ -121,26 +121,26 @@ const Menu = () => {
                       <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2 leading-relaxed">{item.description}</p>
                       <div className="flex items-center justify-between mt-4">
                         {item.hasPortions ? (
-                          <span className="font-bold text-primary whitespace-nowrap">₹{item.singlePrice} - ₹{item.fullPrice}</span>
+                          <span className="font-bold text-accent dark:text-primary whitespace-nowrap">₹{item.singlePrice} - ₹{item.fullPrice}</span>
                         ) : (
-                          <span className="font-bold text-primary">₹{item.price}</span>
+                          <span className="font-bold text-accent dark:text-primary">₹{item.price}</span>
                         )}
                         
                         <div className="flex gap-2 ml-4">
                           {item.hasPortions ? (
                             <>
-                              <button 
-                                onClick={() => addToCart(item, restaurant, 'Single')}
-                                className="bg-primary/20 text-primary px-3 py-2 rounded-xl text-xs font-bold hover:bg-primary hover:text-dark transition-colors outline-none"
-                              >
-                                + Single
-                              </button>
-                              <button 
-                                onClick={() => addToCart(item, restaurant, 'Full')}
-                                className="bg-primary/20 text-primary px-3 py-2 rounded-xl text-xs font-bold hover:bg-primary hover:text-dark transition-colors outline-none"
-                              >
-                                + Full
-                              </button>
+                                <button 
+                                  onClick={() => addToCart(item, restaurant, 'Single')}
+                                  className="text-accent dark:text-primary px-3 py-2 rounded-xl text-xs font-bold hover:bg-black/5 dark:hover:bg-white/5 transition-colors outline-none border border-current"
+                                >
+                                  + Single
+                                </button>
+                                <button 
+                                  onClick={() => addToCart(item, restaurant, 'Full')}
+                                  className="text-accent dark:text-primary px-3 py-2 rounded-xl text-xs font-bold hover:bg-black/5 dark:hover:bg-white/5 transition-colors outline-none border border-current"
+                                >
+                                  + Full
+                                </button>
                             </>
                           ) : (
                             <button 

@@ -96,7 +96,7 @@ const Cart = () => {
                         <Plus size={18} />
                       </button>
                     </div>
-                    <div className="text-xl font-bold">
+                    <div className="text-xl font-bold text-accent dark:text-white">
                       ₹{item.price * item.quantity}
                     </div>
                   </div>
@@ -124,7 +124,7 @@ const Cart = () => {
                 <span>₹{tax}</span>
               </div>
               <div className="h-px bg-gray-200 dark:bg-white/10 my-4"></div>
-              <div className="flex justify-between text-xl font-bold text-primary">
+              <div className="flex justify-between text-xl font-bold text-accent dark:text-primary">
                 <span>Grand Total</span>
                 <span>₹{total}</span>
               </div>
