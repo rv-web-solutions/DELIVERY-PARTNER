@@ -67,9 +67,11 @@ const Home = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-white"
             >
-              Enjoy Your Favourite Food
+              Welcome to <span className="text-primary">Ring4Delivery</span>
               <br />
-              <span className="text-primary">At Your Home</span>
+              <span className="text-2xl md:text-4xl font-bold text-white/80 block mt-2">
+                Enjoy Your Favourite Food At Your Home
+              </span>
             </motion.h1>
 
             <motion.p
