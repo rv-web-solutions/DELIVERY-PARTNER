@@ -50,6 +50,7 @@ const Navbar = () => {
           <Link to="/" className={`transition-colors ${location.pathname === '/' ? 'text-primary' : 'hover:text-primary'}`}>Home</Link>
           <Link to="/services" className={`transition-colors ${location.pathname === '/services' ? 'text-primary' : 'hover:text-primary'}`}>Services</Link>
           <Link to="/restaurants" className={`transition-colors ${location.pathname === '/restaurants' ? 'text-primary' : 'hover:text-primary'}`}>Restaurants</Link>
+          <Link to="/about" className={`transition-colors ${location.pathname === '/about' ? 'text-primary' : 'hover:text-primary'}`}>About Us</Link>
           <Link to="/jobs" className={`transition-colors ${location.pathname === '/jobs' ? 'text-primary' : 'hover:text-primary'}`}>Jobs</Link>
         </div>
 
@@ -88,6 +89,7 @@ const Navbar = () => {
           <Link to="/" onClick={closeMenu} className="font-medium p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors text-black dark:text-white">Home</Link>
           <Link to="/services" onClick={closeMenu} className="font-medium p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors text-black dark:text-white">Services</Link>
           <Link to="/restaurants" onClick={closeMenu} className="font-medium p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors text-black dark:text-white">Restaurants</Link>
+          <Link to="/about" onClick={closeMenu} className="font-medium p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors text-black dark:text-white">About Us</Link>
           <Link to="/jobs" onClick={closeMenu} className="font-medium p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors text-black dark:text-white">Jobs</Link>
           <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 p-2">
             <MapPin size={16} className="text-primary" />

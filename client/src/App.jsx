@@ -18,6 +18,8 @@ import Services from './pages/Services';
 import Restaurants from './pages/Restaurants';
 import CustomOrder from './pages/CustomOrder';
 import Jobs from './pages/Jobs';
+import About from './pages/About';
+import FAQ from './pages/FAQ';
 
 import { CartProvider } from './context/CartContext';
 import { ServiceProvider } from './context/ServiceContext';
@@ -56,6 +58,8 @@ function AppContent() {
             <Route path="/cart" element={<PageWrapper><Cart /></PageWrapper>} />
             <Route path="/checkout" element={<PageWrapper><Checkout /></PageWrapper>} />
             <Route path="/jobs" element={<PageWrapper><Jobs /></PageWrapper>} />
+            <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+            <Route path="/faq" element={<PageWrapper><FAQ /></PageWrapper>} />
             <Route path="/admin/login" element={<PageWrapper><Login /></PageWrapper>} />
             <Route path="/admin/dashboard" element={<PageWrapper><Dashboard /></PageWrapper>} />
             <Route path="/admin/restaurants" element={<PageWrapper><ManageRestaurants /></PageWrapper>} />

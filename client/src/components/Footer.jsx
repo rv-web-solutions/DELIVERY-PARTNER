@@ -30,9 +30,10 @@ const Footer = () => {
         <div>
           <h4 className="font-bold text-black dark:text-white mb-6">Customer Support</h4>
           <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-            <li><a href="/faq" className="hover:text-primary transition-colors">FAQs</a></li>
-            <li><a href="/terms" className="hover:text-primary transition-colors">Terms of Service</a></li>
-            <li><a href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+            <li><Link to="/faq" className="hover:text-primary transition-colors">FAQs</Link></li>
+            <li><a href="https://wa.me/916281407746" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">WhatsApp Support</a></li>
+            <li><Link to="/about" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+            <li><Link to="/about" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
           </ul>
         </div>
 
