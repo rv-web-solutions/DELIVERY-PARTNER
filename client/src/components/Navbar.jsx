@@ -39,9 +39,11 @@ const Navbar = () => {
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           <Link to="/" className="flex items-center gap-2 group" onClick={closeMenu}>
-            <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-lg shadow-primary/20">
-              <span className="text-black font-black text-xl md:text-2xl">R</span>
-            </div>
+            <img
+              src="/logo.jpeg"
+              alt="Ring4Delivery Logo"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-contain transform group-hover:scale-105 transition-transform shadow-md"
+            />
             <span className="font-bold text-lg md:text-xl tracking-tight text-black dark:text-white hidden sm:block">Ring4Delivery</span>
           </Link>
         </div>

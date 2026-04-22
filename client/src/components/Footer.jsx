@@ -6,9 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
         <div className="space-y-6">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
-              <span className="text-black font-black">R</span>
-            </div>
+            <img src="/logo.jpeg" alt="Ring4Delivery Logo" className="w-10 h-10 rounded-lg object-contain shadow-md" />
             <span className="font-bold text-xl text-black dark:text-white">Ring4Delivery</span>
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-xs">
