@@ -33,7 +33,6 @@ const Footer = () => {
             <li><Link to="/faq" className="hover:text-primary transition-colors">FAQs</Link></li>
             <li><a href="https://wa.me/916281407746" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">WhatsApp Support</a></li>
             <li><Link to="/about" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-            <li><Link to="/about" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
           </ul>
         </div>
 
