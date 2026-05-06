@@ -13,7 +13,7 @@ const restaurantSchema = new mongoose.Schema({
     deliveryFee: {
         type: Number,
         required: [true, 'Please provide a delivery fee'],
-        default: 40
+        default: 50
     },
     cuisine: {
         type: String,

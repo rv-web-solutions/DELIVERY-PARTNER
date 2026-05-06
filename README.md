@@ -29,7 +29,7 @@ A modern, responsive food delivery web application built with HTML, CSS, JavaScr
 - Remove items
 - Order summary with billing details
   - Subtotal
-  - Delivery Fee (₹40)
+  - Delivery Fee (₹50)
   - Tax (5%)
   - Total Amount
 
@@ -259,7 +259,7 @@ Edit `js/data.js` and add menu item objects to the `menus` array.
 ### Change Delivery Fee or Tax
 Edit `cart.html` to modify:
 ```javascript
-const deliveryFee = 40; // Change delivery fee
+const deliveryFee = 50; // Change delivery fee
 const tax = Math.round(subtotal * 0.05); // Change tax percentage
 ```
 

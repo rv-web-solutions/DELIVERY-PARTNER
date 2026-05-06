@@ -12,7 +12,7 @@ const restaurantsData = [
         rating: 4.8,
         deliveryTime: '30-40 mins',
         imageUrl: 'https://images.unsplash.com/photo-1564379694568-e70de7e196e3?w=800&fit=crop',
-        deliveryFee: 40,
+        deliveryFee: 50,
         address: '123 Pizza Street'
     },
     {
