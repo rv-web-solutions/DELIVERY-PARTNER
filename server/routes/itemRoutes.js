@@ -7,7 +7,7 @@ const router = express.Router();
 // Public Routes
 router.get('/', async (req, res) => {
     try {
-        const items = await Item.find().populate('restaurantId');
+        const items = await Item.find().populate('restaurantId').lean();
         res.status(200).json(items);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.get('/restaurant/:restaurantId', async (req, res) => {
     try {
-        const items = await Item.find({ restaurantId: req.params.restaurantId });
+        const items = await Item.find({ restaurantId: req.params.restaurantId }).lean();
         res.status(200).json(items);
     } catch (error) {
         res.status(500).json({ message: error.message });

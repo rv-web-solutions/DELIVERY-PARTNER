@@ -4,9 +4,8 @@ import { Trash2, Plus, Minus, ArrowRight, ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Cart = () => {
-  const { cart, updateQuantity, removeFromCart, subtotal, totalItems, updateSpecifications } = useCart();
+  const { cart, updateQuantity, removeFromCart, subtotal, deliveryFee, totalItems, updateSpecifications } = useCart();
   
-  const deliveryFee = cart.length > 0 ? 40 : 0;
   const tax = Math.round(subtotal * 0.05);
   const total = subtotal + deliveryFee + tax;
 
@@ -22,7 +21,7 @@ const Cart = () => {
         </p>
         <Link 
           to="/" 
-          className="bg-primary text-dark px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-all"
+          className="bg-primary text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-all"
         >
           Explore Restaurants
         </Link>
@@ -31,7 +30,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
+    <div className="pt-32 pb-20 px-4 md:px-6 max-w-7xl mx-auto min-h-screen">
       <h1 className="text-4xl font-bold mb-12 flex items-center gap-4 text-gray-900 dark:text-white">
         Your Shopping Cart
         <span className="text-lg font-normal text-gray-500">({totalItems} items)</span>
@@ -47,7 +46,7 @@ const Cart = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="glass p-6 rounded-3xl flex flex-col sm:flex-row gap-6 items-start"
+                className="glass p-4 sm:p-6 rounded-3xl flex flex-col sm:flex-row gap-6 items-start"
               >
                 <img 
                   src={item.imageUrl || '/pickup-drop-service.png'} 
@@ -108,7 +107,7 @@ const Cart = () => {
 
         {/* Bill Summary */}
         <div className="lg:col-span-1">
-          <div className="glass p-8 rounded-3xl sticky top-32">
+          <div className="glass p-6 lg:p-8 rounded-3xl sticky top-32">
             <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Bill Summary</h3>
             <div className="space-y-4 mb-8">
               <div className="flex justify-between text-gray-600 dark:text-gray-400">
@@ -131,7 +130,7 @@ const Cart = () => {
             </div>
             <Link 
               to="/checkout"
-              className="w-full bg-primary text-dark py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-all"
+              className="w-full bg-primary text-black py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-all"
             >
               Proceed to Checkout <ArrowRight size={20} />
             </Link>

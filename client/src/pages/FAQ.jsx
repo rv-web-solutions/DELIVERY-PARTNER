@@ -22,12 +22,12 @@ const FAQ = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-bold mb-6">
+            className="inline-block px-4 py-2 bg-accent/10 dark:bg-primary/10 text-accent dark:text-primary rounded-full text-sm font-bold mb-6">
             Got Questions?
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-extrabold mb-4">
-            Frequently Asked <span className="text-primary">Questions</span>
+            Frequently Asked <span className="text-accent dark:text-primary">Questions</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
             className="text-gray-500 dark:text-gray-400 text-lg">

@@ -15,12 +15,12 @@ const About = () => {
       {/* Hero */}
       <div className="max-w-4xl mx-auto text-center mb-20">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-bold mb-6">
+          className="inline-block px-4 py-2 bg-accent/10 dark:bg-primary/10 text-accent dark:text-primary rounded-full text-sm font-bold mb-6">
           Who We Are
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
           className="text-4xl md:text-6xl font-extrabold mb-6">
-          About <span className="text-primary">Ring4Delivery</span>
+          About <span className="text-accent dark:text-primary">Ring4Delivery</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
           className="text-gray-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">

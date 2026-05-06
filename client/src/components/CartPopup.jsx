@@ -99,7 +99,7 @@ const CartPopup = () => {
                                     setShowPopup(false);
                                     navigate('/cart');
                                 }}
-                                className="flex-grow bg-primary text-dark py-3 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                                className="flex-grow bg-primary text-black py-3 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-all"
                             >
                                 View Cart <ArrowRight size={18} />
                             </button>

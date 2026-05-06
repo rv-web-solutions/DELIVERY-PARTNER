@@ -38,7 +38,7 @@ const Jobs = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-bold mb-6"
+          className="inline-block px-4 py-2 bg-accent/10 dark:bg-primary/10 text-accent dark:text-primary rounded-full text-sm font-bold mb-6"
         >
           We Are Hiring!
         </motion.div>
@@ -48,7 +48,7 @@ const Jobs = () => {
           transition={{ delay: 0.1 }}
           className="text-4xl md:text-6xl font-extrabold mb-6 text-black dark:text-white"
         >
-          Join the <span className="text-primary">Ring4Delivery</span> Fleet
+          Join the <span className="text-accent dark:text-primary">Ring4Delivery</span> Fleet
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ const Jobs = () => {
             <div className="grid gap-4">
               {requirements.map((req, i) => (
                 <div key={i} className="flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-surface-dark border border-black/5 dark:border-white/5 shadow-sm">
-                  <CheckCircle2 className="text-primary" size={20} />
+                  <CheckCircle2 className="text-accent dark:text-primary" size={20} />
                   <span className="text-black dark:text-gray-300 font-bold">{req}</span>
                 </div>
               ))}

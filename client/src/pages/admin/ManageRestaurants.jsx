@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 import ConfirmModal from '../../components/ConfirmModal';
 
 const EMPTY_FORM = { 
-  name: '', cuisine: '', deliveryFee: 40, imageUrl: '',
+  name: '', cuisine: '', deliveryFee: 50, imageUrl: '',
   rating: 4.5, deliveryTime: '30-40 mins', address: '' 
 };
 
@@ -126,7 +126,7 @@ const ManageRestaurants = () => {
         </div>
         <button 
           onClick={openAddModal}
-          className="bg-primary text-dark px-6 py-4 rounded-2xl font-bold flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-primary/20"
+          className="bg-primary text-black px-6 py-4 rounded-2xl font-bold flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-primary/20"
         >
           <Plus size={20} /> Add New Restaurant
         </button>
@@ -157,7 +157,7 @@ const ManageRestaurants = () => {
                   <div className="absolute top-4 right-4 flex gap-2">
                     <button 
                       onClick={() => openEditModal(res)}
-                      className="p-2 bg-black/60 backdrop-blur-md rounded-lg text-primary hover:bg-primary hover:text-dark transition-colors"
+                      className="p-2 bg-black/60 backdrop-blur-md rounded-lg text-primary hover:bg-primary hover:text-black transition-colors"
                       title="Edit"
                     >
                       <Edit2 size={16} />
@@ -292,7 +292,7 @@ const ManageRestaurants = () => {
                   </button>
                   <button 
                     type="submit" disabled={saving}
-                    className="flex-[2] py-4 rounded-2xl bg-primary text-dark font-bold hover:scale-[1.02] transition-all disabled:opacity-50 disabled:scale-100"
+                    className="flex-[2] py-4 rounded-2xl bg-primary text-black font-bold hover:scale-[1.02] transition-all disabled:opacity-50 disabled:scale-100"
                   >
                     {saving ? 'Saving...' : editingId ? 'Update Restaurant' : 'Save Restaurant'}
                   </button>

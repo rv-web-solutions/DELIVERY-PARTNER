@@ -63,7 +63,7 @@ const Menu = () => {
           </Link>
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">{restaurant.name}</h1>
           <div className="flex flex-wrap items-center gap-6 text-sm">
-            <div className="bg-primary text-dark px-3 py-1 rounded-full font-bold flex items-center gap-1 shadow-sm">
+            <div className="bg-primary text-black px-3 py-1 rounded-full font-bold flex items-center gap-1 shadow-sm">
               <Star size={14} className="fill-dark" /> {restaurant.rating}
             </div>
             <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-medium bg-white/80 dark:bg-black/50 px-3 py-1 rounded-full backdrop-blur-md">
@@ -145,7 +145,7 @@ const Menu = () => {
                           ) : (
                             <button 
                               onClick={() => addToCart(item, restaurant)}
-                              className="bg-primary text-dark p-2 rounded-xl hover:scale-110 active:scale-95 transition-all outline-none shrink-0"
+                              className="bg-primary text-black p-2 rounded-xl hover:scale-110 active:scale-95 transition-all outline-none shrink-0"
                             >
                               <Plus size={18} />
                             </button>

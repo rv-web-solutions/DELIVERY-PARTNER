@@ -58,7 +58,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-accent px-4 py-2 rounded-full font-bold text-sm mb-6"
             >
-              ❤️ <span>Good Food is Good Mood!</span>
+              ❤️ <span>Good Food Good Mood!</span>
             </motion.div>
 
             <motion.h1
@@ -139,7 +139,7 @@ const Home = () => {
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-extrabold mb-6 text-black dark:text-white"
             >
-              Why Choose <span className="text-primary">Ring4Delivery?</span>
+              Why Choose <span className="text-accent dark:text-primary">Ring4Delivery?</span>
             </motion.h2>
             <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
               Experience a delivery service built on speed, quality, and your favourite local flavors.

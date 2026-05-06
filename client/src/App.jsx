@@ -20,6 +20,7 @@ import CustomOrder from './pages/CustomOrder';
 import Jobs from './pages/Jobs';
 import About from './pages/About';
 import FAQ from './pages/FAQ';
+import Contact from './pages/Contact';
 
 import { CartProvider } from './context/CartContext';
 import { ServiceProvider } from './context/ServiceContext';
@@ -60,6 +61,7 @@ function AppContent() {
             <Route path="/jobs" element={<PageWrapper><Jobs /></PageWrapper>} />
             <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
             <Route path="/faq" element={<PageWrapper><FAQ /></PageWrapper>} />
+            <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
             <Route path="/admin/login" element={<PageWrapper><Login /></PageWrapper>} />
             <Route path="/admin/dashboard" element={<PageWrapper><Dashboard /></PageWrapper>} />
             <Route path="/admin/restaurants" element={<PageWrapper><ManageRestaurants /></PageWrapper>} />

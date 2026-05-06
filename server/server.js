@@ -8,6 +8,7 @@ import restaurantRoutes from './routes/restaurantRoutes.js';
 import itemRoutes from './routes/itemRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import serviceRoutes from './routes/serviceRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 
 
 import Restaurant from './models/Restaurant.js';
@@ -29,6 +30,7 @@ app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/items', itemRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/services', serviceRoutes);
+app.use('/api/orders', orderRoutes);
 
 app.get('/', (req, res) => {
     res.send('Ring4Delivery API is running...');
@@ -57,7 +59,7 @@ const seedData = async () => {
             rating: 4.8,
             deliveryTime: '30-40 mins',
             imageUrl: 'https://images.unsplash.com/photo-1564379694568-e70de7e196e3?w=800&fit=crop',
-            deliveryFee: 40,
+            deliveryFee: 50,
             address: '123 Pizza Street'
         });
 

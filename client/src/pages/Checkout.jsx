@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import LocationSearchInput from '../components/LocationSearchInput';
 
 const Checkout = () => {
-  const { cart, subtotal, totalItems, clearCart } = useCart();
+  const { cart, subtotal, deliveryFee, totalItems, clearCart } = useCart();
   const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
@@ -27,7 +27,6 @@ const Checkout = () => {
   const addressRef = useRef(null);
   const locationRef = useRef(null);
 
-  const deliveryFee = 40;
   const tax = Math.round(subtotal * 0.05);
   const total = subtotal + deliveryFee + tax;
 
@@ -53,10 +52,6 @@ const Checkout = () => {
       if (!firstErrorField) firstErrorField = 'address';
     }
     
-    if (!formData.locationLink.trim()) {
-      newErrors.locationLink = 'Precise location detection is mandatory. Please tap "Detect My Location" above.';
-      if (!firstErrorField) firstErrorField = 'location';
-    }
     
     setErrors(newErrors);
     return firstErrorField;
@@ -114,7 +109,7 @@ const Checkout = () => {
     );
   };
 
-  const handlePlaceOrder = () => {
+  const handlePlaceOrder = async () => {
     const firstError = validate();
     if (firstError) {
       const refs = {
@@ -131,10 +126,24 @@ const Checkout = () => {
       return;
     }
 
-    const orderId = `ORDER-${Date.now().toString().slice(-6)}`;
+    let serialNumber = Date.now().toString().slice(-6);
+    try {
+      const response = await fetch('http://localhost:5000/api/orders/next-serial', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      if (response.ok) {
+        const data = await response.json();
+        serialNumber = data.serialNumber;
+      }
+    } catch (error) {
+      console.error('Error fetching serial number:', error);
+    }
+
+    const orderId = `#${serialNumber}`;
     
     let message = `*Ring4Delivery Order Confirmation*\n\n` +
-      `*Order ID:* ${orderId}\n` +
+      `*Order No:* ${orderId}\n` +
       `*Name:* ${formData.name}\n` +
       `*Phone:* ${formData.phone}\n` +
       `*Delivery Address:* ${formData.address}\n` +
@@ -175,6 +184,7 @@ const Checkout = () => {
       `Delivery Fee: ₹${deliveryFee}\n` +
       `Tax (5%): ₹${tax}\n` +
       `*Total: ₹${total}*\n` +
+      `\n_Note: Additional delivery charges may apply based on distance._\n` +
       (formData.notes ? `\n*Special Notes:* ${formData.notes}` : '') +
       `\n\n_Thank you for ordering with Ring4Delivery!_`;
 
@@ -191,7 +201,7 @@ const Checkout = () => {
   }
 
   return (
-    <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
+    <div className="pt-32 pb-20 px-4 md:px-6 max-w-7xl mx-auto min-h-screen">
       <div className="flex items-center gap-4 mb-12">
         <ClipboardCheck className="text-primary" size={32} />
         <h1 className="text-4xl font-bold text-black dark:text-white">Checkout</h1>
@@ -200,7 +210,7 @@ const Checkout = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Form Section */}
         <div className="space-y-8">
-          <div className="glass p-8 rounded-[2.5rem] border-black/5 dark:border-white/5 bg-white dark:bg-black">
+          <div className="glass p-5 md:p-8 rounded-[2.5rem] border-black/5 dark:border-white/5 bg-white dark:bg-black">
             <h3 className="text-xl font-bold mb-8 flex items-center gap-2 text-black dark:text-white">
               <User size={20} className="text-primary" /> Delivery Information
             </h3>
@@ -264,7 +274,7 @@ const Checkout = () => {
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between">
                       <label className="text-sm font-medium text-gray-600 dark:text-gray-400 ml-1">
-                        Location <span className="text-accent">*</span>
+                        Location (Optional)
                       </label>
                     </div>
                     
@@ -286,7 +296,7 @@ const Checkout = () => {
                         <>📍 Detect My Current Location</>
                       )}
                     </button>
-                    <p className="text-[10px] text-gray-500 ml-1">Current location is mandatory for accurate delivery.</p>
+                    <p className="text-[10px] text-gray-500 ml-1">Sharing current location helps with accurate delivery.</p>
                   </div>
 
                   {/* Error message */}
@@ -336,7 +346,7 @@ const Checkout = () => {
 
         {/* Order Summary Section */}
         <div className="space-y-8">
-          <div className="glass p-8 rounded-[2.5rem] border-gray-200 dark:border-white/5">
+          <div className="glass p-5 md:p-8 rounded-[2.5rem] border-gray-200 dark:border-white/5">
             <h3 className="text-xl font-bold mb-8 text-gray-900 dark:text-white">Order Summary</h3>
             <div className="max-h-60 overflow-y-auto space-y-4 mb-8 pr-2 custom-scrollbar">
               {cart.map((item) => (
