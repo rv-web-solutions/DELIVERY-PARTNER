@@ -172,7 +172,7 @@ const ManageRestaurants = () => {
                   </div>
                 </div>
                 <h3 className="text-xl font-bold mb-1">{res.name}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{res.cuisine} • Delivery Fee ₹{res.deliveryFee}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{res.cuisine} • Delivery Fee ₹{Math.max(50, res.deliveryFee || 0)}</p>
                 <div className="pt-4 border-t border-black/5 dark:border-white/5 flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
                   <span>{res.deliveryTime}</span>
                   <span className="bg-green-400/10 text-green-600 dark:text-green-400 px-2 py-0.5 rounded-full font-bold">ACTIVE</span>

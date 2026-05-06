@@ -70,7 +70,7 @@ const Menu = () => {
               <Clock size={16} /> {restaurant.deliveryTime}
             </div>
             <div className="text-gray-700 dark:text-gray-300 font-medium bg-white/80 dark:bg-black/50 px-3 py-1 rounded-full backdrop-blur-md">
-              {restaurant.cuisine} • Delivery Fee <span className="text-accent dark:text-primary font-bold">₹{restaurant.deliveryFee}</span>
+              {restaurant.cuisine} • Delivery Fee <span className="text-accent dark:text-primary font-bold">₹{Math.max(50, restaurant.deliveryFee || 0)}</span>
             </div>
           </div>
         </div>

@@ -114,7 +114,7 @@ const Restaurants = () => {
                 </div>
                 <div className="px-2 pb-2">
                   <h3 className="text-xl font-bold group-hover:text-primary transition-colors text-gray-900 dark:text-gray-100">{restaurant.name}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{restaurant.cuisine} • Delivery Fee ₹{restaurant.deliveryFee}</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{restaurant.cuisine} • Delivery Fee ₹{Math.max(50, restaurant.deliveryFee || 0)}</p>
                 </div>
               </Link>
             </motion.div>
