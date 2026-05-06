@@ -6,7 +6,13 @@ const router = express.Router();
 // Get and increment the next serial number for today
 router.post('/next-serial', async (req, res) => {
     try {
-        const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+        // Use Indian Standard Time (IST) for date calculation
+        const today = new Date().toLocaleDateString('en-GB', {
+            timeZone: 'Asia/Kolkata',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        }).split('/').reverse().join('-'); // Format as YYYY-MM-DD
         
         const counter = await OrderCounter.findOneAndUpdate(
             { date: today },
