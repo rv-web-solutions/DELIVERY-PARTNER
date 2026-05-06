@@ -69,7 +69,7 @@ export const CartProvider = ({ children }) => {
   const clearCart = () => setCart([]);
 
   const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-  const deliveryFee = cart.length > 0 ? Math.max(50, ...cart.map(item => item.restaurantDeliveryFee || 50)) : 0;
+  const deliveryFee = cart.length > 0 ? 50 : 0;
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (

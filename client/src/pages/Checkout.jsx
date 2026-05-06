@@ -28,8 +28,7 @@ const Checkout = () => {
   const locationRef = useRef(null);
 
   const tax = Math.round(subtotal * 0.05);
-  const displayDeliveryFee = cart.length > 0 ? Math.max(50, deliveryFee) : 0;
-  const total = subtotal + displayDeliveryFee + tax;
+  const total = subtotal + deliveryFee + tax;
 
   const validate = () => {
     const newErrors = {};
@@ -182,7 +181,7 @@ const Checkout = () => {
 
     message += `\n*Bill Summary:* \n` +
       `Subtotal: ₹${subtotal}\n` +
-      `Delivery Fee: ₹${displayDeliveryFee}\n` +
+      `Delivery Fee: ₹${deliveryFee}\n` +
       `Tax (5%): ₹${tax}\n` +
       `*Total: ₹${total}*\n` +
       `\n_Note: Additional delivery charges may apply based on distance._\n` +
