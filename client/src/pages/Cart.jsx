@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart, subtotal, deliveryFee, totalItems, updateSpecifications } = useCart();
   
-  const tax = Math.round(subtotal * 0.05);
-  const total = subtotal + deliveryFee + tax;
+  const displayDeliveryFee = cart.length > 0 ? Math.max(50, deliveryFee) : 0;
+  const total = subtotal + displayDeliveryFee + tax;
 
   if (cart.length === 0) {
     return (
@@ -116,7 +116,7 @@ const Cart = () => {
               </div>
               <div className="flex justify-between text-gray-600 dark:text-gray-400">
                 <span>Delivery Fee</span>
-                <span>₹{deliveryFee}</span>
+                <span>₹{displayDeliveryFee}</span>
               </div>
               <div className="flex justify-between text-gray-600 dark:text-gray-400">
                 <span>Taxes (5%)</span>
