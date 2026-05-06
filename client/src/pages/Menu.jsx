@@ -40,7 +40,7 @@ const Menu = () => {
   if (!restaurant) return (
     <div className="pt-32 px-6 text-center text-gray-900 dark:text-white">
       <h2 className="text-2xl font-bold">Restaurant not found</h2>
-      <Link to="/" className="text-primary mt-4 inline-block">Back to Home</Link>
+      <Link to="/" className="text-accent dark:text-primary mt-4 inline-block">Back to Home</Link>
     </div>
   );
 
@@ -58,7 +58,7 @@ const Menu = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent z-10 transition-colors"></div>
         <div className="absolute bottom-10 left-6 right-6 max-w-7xl mx-auto z-20">
-          <Link to="/restaurants" className="flex items-center gap-2 text-primary mb-6 hover:-translate-x-1 transition-transform inline-block font-bold">
+          <Link to="/restaurants" className="flex items-center gap-2 text-accent dark:text-primary mb-6 hover:-translate-x-1 transition-transform inline-block font-bold">
             <ChevronLeft size={20} /> Back to Restaurants
           </Link>
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">{restaurant.name}</h1>

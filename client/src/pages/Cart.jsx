@@ -21,7 +21,7 @@ const Cart = () => {
         </p>
         <Link 
           to="/" 
-          className="bg-primary text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-all"
+          className="bg-accent dark:bg-primary text-white dark:text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-all"
         >
           Explore Restaurants
         </Link>
@@ -58,11 +58,11 @@ const Cart = () => {
                   <div className="flex items-start justify-between mb-2">
                     <div>
                       <h4 className="font-bold text-xl text-gray-900 dark:text-white">{item.name}</h4>
-                      <p className="text-sm text-primary">{item.restaurantName || item.category}</p>
+                      <p className="text-sm text-accent dark:text-primary">{item.restaurantName || item.category}</p>
                     </div>
                     <button 
                       onClick={() => removeFromCart(item._id)}
-                      className="text-gray-500 hover:text-accent p-2 transition-colors"
+                      className="text-gray-500 hover:text-accent dark:hover:text-primary p-2 transition-colors"
                     >
                       <Trash2 size={20} />
                     </button>
@@ -73,7 +73,7 @@ const Cart = () => {
                     <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-1">Special Specifications</label>
                     <textarea 
                       placeholder="Need any items specify here..."
-                      className="w-full bg-white/5 dark:bg-black/10 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 rounded-2xl py-3 px-4 text-sm outline-none focus:border-primary/50 transition-all resize-none h-16 placeholder:text-gray-400"
+                      className="w-full bg-white/5 dark:bg-black/10 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 rounded-2xl py-3 px-4 text-sm outline-none focus:border-accent dark:focus:border-primary/50 transition-all resize-none h-16 placeholder:text-gray-400"
                       value={item.specifications || ''}
                       onChange={(e) => updateSpecifications(item._id, e.target.value)}
                     />
@@ -83,14 +83,14 @@ const Cart = () => {
                     <div className="flex items-center justify-center gap-4 bg-gray-50 dark:bg-white/5 px-4 py-2 rounded-xl border border-gray-200 dark:border-white/10 w-fit text-gray-900 dark:text-gray-100">
                       <button 
                         onClick={() => updateQuantity(item._id, -1)}
-                        className="p-1 hover:text-primary transition-colors"
+                        className="p-1 hover:text-accent dark:hover:text-primary transition-colors"
                       >
                         <Minus size={18} />
                       </button>
                       <span className="font-bold w-4 text-center">{item.quantity}</span>
                       <button 
                          onClick={() => updateQuantity(item._id, 1)}
-                         className="p-1 hover:text-primary transition-colors"
+                         className="p-1 hover:text-accent dark:hover:text-primary transition-colors"
                       >
                         <Plus size={18} />
                       </button>
