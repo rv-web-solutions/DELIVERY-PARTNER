@@ -7,6 +7,7 @@ import { useService } from '../context/ServiceContext';
 
 import { fetchRestaurants, fetchAllItems } from '../api';
 import toast from 'react-hot-toast';
+import OptimizedImage from '../components/OptimizedImage';
 
 const Restaurants = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -98,9 +99,11 @@ const Restaurants = () => {
             >
               <Link to={`/restaurant/${restaurant._id}`}>
                 <div className="relative h-60 overflow-hidden rounded-[1.5rem] mb-4">
-                  <img 
+                  <OptimizedImage 
                     src={restaurant.imageUrl} 
                     alt={restaurant.name}
+                    width={450}
+                    height={240}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm border border-white/20 dark:border-gray-700/50">

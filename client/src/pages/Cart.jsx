@@ -2,6 +2,7 @@ import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import { Trash2, Plus, Minus, ArrowRight, ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import OptimizedImage from '../components/OptimizedImage';
 
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart, subtotal, deliveryFee, totalItems, updateSpecifications } = useCart();
@@ -48,10 +49,12 @@ const Cart = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="glass p-4 sm:p-6 rounded-3xl flex flex-col sm:flex-row gap-6 items-start"
               >
-                <img 
-                  src={item.imageUrl || '/pickup-drop-service.png'} 
+                <OptimizedImage 
+                  src={item.imageUrl} 
                   alt={item.name} 
-                  onError={(e) => { e.target.src = '/pickup-drop-service.png'; e.target.onerror = null; }}
+                  width={150}
+                  height={150}
+                  fallbackSrc="/pickup-drop-service.png"
                   className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl object-cover shrink-0" 
                 />
                 <div className="flex-grow w-full">

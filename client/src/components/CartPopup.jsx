@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, X, MessageSquare, ArrowRight } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import OptimizedImage from './OptimizedImage';
 
 const CartPopup = () => {
     const { showPopup, setShowPopup, lastAddedItem, cart, updateSpecifications } = useCart();
@@ -68,10 +69,12 @@ const CartPopup = () => {
                         </div>
 
                         <div className="flex gap-4 mb-6">
-                            <img 
-                                src={lastAddedItem.imageUrl || '/pickup-drop-service.png'} 
+                             <OptimizedImage 
+                                src={lastAddedItem.imageUrl} 
                                 alt={lastAddedItem.name} 
-                                onError={(e) => { e.target.src = '/pickup-drop-service.png'; e.target.onerror = null; }}
+                                width={80}
+                                height={80}
+                                fallbackSrc="/pickup-drop-service.png"
                                 className="w-16 h-16 rounded-2xl object-cover shrink-0" 
                             />
                             <div>

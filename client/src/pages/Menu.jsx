@@ -4,6 +4,7 @@ import { ChevronLeft, ShoppingCart, Plus, Minus, Star, Clock } from 'lucide-reac
 import { motion } from 'framer-motion';
 import { fetchRestaurant, fetchItems } from '../api';
 import { useCart } from '../context/CartContext';
+import OptimizedImage from '../components/OptimizedImage';
 
 const Menu = () => {
   const { id } = useParams();
@@ -51,9 +52,12 @@ const Menu = () => {
       {/* Restaurant Header */}
       <div className="relative h-[40vh]">
         <div className="absolute inset-0 bg-black/40 z-10 mix-blend-multiply"></div>
-        <img 
+        <OptimizedImage 
           src={restaurant.imageUrl} 
           alt={restaurant.name} 
+          width={1200}
+          height={400}
+          loading="eager"
           className="w-full h-full object-cover relative z-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-gray-900 to-transparent z-10 transition-colors"></div>
@@ -111,9 +115,11 @@ const Menu = () => {
                     animate={{ opacity: 1 }}
                     className="p-4 glass rounded-3xl flex gap-4 hover:shadow-md dark:hover:bg-white/5 transition-all outline outline-1 outline-gray-200 dark:outline-white/5 border-none"
                   >
-                    <img 
+                    <OptimizedImage 
                       src={item.imageUrl} 
                       alt={item.name} 
+                      width={150}
+                      height={150}
                       className="w-24 h-24 rounded-2xl object-cover shrink-0 shadow-sm"
                     />
                     <div className="flex-grow">

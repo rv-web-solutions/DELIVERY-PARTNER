@@ -9,6 +9,7 @@ import API from '../../api';
 import ImageUploader from '../../components/ImageUploader';
 import toast from 'react-hot-toast';
 import ConfirmModal from '../../components/ConfirmModal';
+import OptimizedImage from '../../components/OptimizedImage';
 
 const EMPTY_FORM = { 
   name: '', cuisine: '', deliveryFee: 50, imageUrl: '',
@@ -149,9 +150,11 @@ const ManageRestaurants = () => {
                 className="glass p-6 rounded-[2rem] border-black/5 dark:border-white/5 group shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="relative h-48 rounded-2xl overflow-hidden mb-6">
-                  <img 
+                  <OptimizedImage 
                     src={res.imageUrl} 
                     alt={res.name} 
+                    width={450}
+                    height={240}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
                   />
                   <div className="absolute top-4 right-4 flex gap-2">

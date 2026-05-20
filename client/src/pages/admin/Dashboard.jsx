@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fetchRestaurants } from '../../api';
+import OptimizedImage from '../../components/OptimizedImage';
 
 const Dashboard = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -204,7 +205,7 @@ const Dashboard = () => {
               {restaurants.slice(0, 5).map((r) => (
                 <tr key={r._id} className="hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
                   <td className="px-8 py-4 flex items-center gap-3">
-                    <img src={r.imageUrl} className="w-10 h-10 rounded-lg object-cover" alt="" />
+                    <OptimizedImage src={r.imageUrl} width={80} height={80} className="w-10 h-10 rounded-lg object-cover" alt="" />
                     <span className="font-bold">{r.name}</span>
                   </td>
                   <td className="px-8 py-4 text-sm text-gray-600 dark:text-gray-400">{r.cuisine}</td>

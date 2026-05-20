@@ -9,6 +9,7 @@ import API from '../../api';
 import ImageUploader from '../../components/ImageUploader';
 import toast from 'react-hot-toast';
 import ConfirmModal from '../../components/ConfirmModal';
+import OptimizedImage from '../../components/OptimizedImage';
 
 const EMPTY_FORM = { 
   name: '', price: 0, category: '', imageUrl: '', description: '',
@@ -206,7 +207,7 @@ const ManageItems = () => {
             ) : items.length > 0 ? items.map((item) => (
               <tr key={item._id} className="hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
                 <td className="px-8 py-4 flex items-center gap-4">
-                  <img src={item.imageUrl} className="w-12 h-12 rounded-xl object-cover shrink-0" alt="" />
+                  <OptimizedImage src={item.imageUrl} width={100} height={100} className="w-12 h-12 rounded-xl object-cover shrink-0" alt="" />
                   <div>
                     <span className="font-bold">{item.name}</span>
                     {item.description && (
